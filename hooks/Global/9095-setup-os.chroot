@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+# Change hostname
+	rm /etc/hostname
+	echo "ada" >> /etc/hostname
+
+# Change live user
+	ln -sf /usr/share/icons/User /etc/skel/.face
+	ln -sf /etc/skel/.face /etc/skel/.face.icon
+
+# Rebrand into Ada OS
+	systemctl enable adaos.service
+	sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
+	sed -i -e 's|Debian|Ada|g' /etc/os-release
+	sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+
+# Change installer icon & name to Ada
+	sed -i -e 's|Debian|Ada OS|g' /usr/share/applications/install-debian.desktop
+
+# Remove un-needed packages
+	/usr/bin/apt purge -y firefox-esr
+	/usr/bin/apt autoremove -y
+
+# Setup flatpak
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak install org.mozilla.firefox/x86_64/stable -y

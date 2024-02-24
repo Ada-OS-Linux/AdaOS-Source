@@ -1,0 +1,12 @@
+[Unit]
+Description=Ada OS Service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
+ExecStart=sed -i -e 's|Debian|Ada|g' /etc/os-release
+ExecStart=sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+
+[Install]
+WantedBy=multi-user.target

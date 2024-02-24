@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+# Remove un-needed packages
+	/usr/bin/apt purge -y systemsettings
+	/usr/bin/apt autoclean -y
+	/usr/bin/apt clean
+
+# Install flatpak
+	flatpak install org.libreoffice.LibreOffice -y
