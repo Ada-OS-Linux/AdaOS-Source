@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Ada OS
-# By colebolebole, using Blade OS & based on eznixOS by eznix (https://sourceforge.net/projects/eznixos/)
+# AdaOS
+# based on Blade OS
 # (GNU/General Public License version 3.0)
 
 # Step by Step Live-Build
@@ -21,13 +21,13 @@ cd $BLDDIR
 
 # Set up build environment
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher Ada --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bookworm --archive-areas "main contrib non-free non-free-firmware" --updates true --security true --cache true --apt-recommends true --firmware-binary true --firmware-chroot true --win32-loader false --iso-application $BLDDIR --iso-preparer NovusOh --iso-publisher AdaPolymar --image-name "$BLDDIR-$(date -u +"%y%m%d")" --iso-volume "$BLDDIR-$(date -u +"%y%m%d")" --checksums sha512 --clean --color
 
 # Install desktop and applications
 
-echo "accountsservice dconf-cli gnome-keyring gvfs-backends gvfs-fuse light-locker gnome-core gnome-software flatpak gnome-software-plugin-flatpak gnome-tweaks gnome-shell-extension-appindicator appstream gnome-shell-extension-manager cheese secrets rhythmbox" > $WKDIR/$BLDDIR/config/package-lists/gnomedesktop.list.chroot
+echo "accountsservice dconf-cli gufw gnome-keyring gvfs-backends gvfs-fuse light-locker gnome-core gnome-software flatpak gnome-software-plugin-flatpak gnome-tweaks appstream gnome-shell-extension-manager gnome-initial-setup geary cheese secrets rhythmbox" > $WKDIR/$BLDDIR/config/package-lists/gnomedesktop.list.chroot
 
-echo "aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libegl1-mesa libibus-1.0-5 libgl1-mesa-glx libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
+echo "ufw git aisleriot alsa-utils apt-transport-https autoconf automake btrfs-progs build-essential cdtool cdrdao cdrskin cifs-utils cryptsetup cryptsetup-initramfs cups cups-filters curl dbus-user-session dbus-x11 debconf debhelper dh-autoreconf dialog dirmngr dkms dos2unix dosfstools dvdauthor exfatprogs faac faad fakeroot ffmpeg flac foomatic-db foomatic-db-engine frei0r-plugins fuse3 ghostscript gir1.2-ibus-1.0 gnome-disk-utility gparted grub-pc gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good haveged htop hunspell-en-us hyphen-en-us ibus ibus-data ibus-gtk ibus-gtk3 iftop im-config inxi isolinux iw jfsutils lame less libegl1-mesa libibus-1.0-5 libgl1-mesa-glx libqt5opengl5 libnss-mdns libsmbclient libxcb-xtest0 libxvidcore4 linux-headers-amd64 live-build lsb-release lshw mencoder menu mjpegtools mpg321 mtools mythes-en-us neofetch netcat-openbsd ntfs-3g nvidia-detect openconnect openvpn openvpn-systemd-resolved os-prober p7zip-full p7zip-rar pciutils perl plymouth plymouth-label plymouth-themes plymouth-x11 policykit-1 printer-driver-gutenprint python3-ibus-1.0 rar samba-common-bin smbclient sox squashfs-tools streamripper sudo syslinux syslinux-common testdisk timeshift twolame udisks2 upower unrar unzip wget x11-common x265 x264 xauth xclip xdg-utils xfsprogs xorg xserver-xorg-input-all xserver-xorg-video-all xorriso xterm zip zstd bleachbit" > $WKDIR/$BLDDIR/config/package-lists/extrapackages.list.chroot
 
 echo "atmel-firmware bluez-firmware firmware-linux-free midisport-firmware firmware-misc-nonfree firmware-amd-graphics firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qcom-soc firmware-qlogic firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-sof-signed firmware-zd1211" > $WKDIR/$BLDDIR/config/package-lists/firmware.list.chroot
 
@@ -45,24 +45,30 @@ echo "calamares calamares-settings-debian" > $WKDIR/$BLDDIR/config/package-lists
 # Make folders in the chroot
 
 mkdir -p $WKDIR/$BLDDIR/config/hooks/normal/
+mkdir -p $WKDIR/$BLDDIR/config/archives/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/local/bin/
+mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/apt/trusted.gpg.d
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/.config/
 mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/applications/
-mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
-mkdir -p $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 
 # Copy files into the chroot
 cp -r ../bootloaders/ $BLDDIR/config/
-cp -r ../themes/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
-cp -r ../Services/* $WKDIR/$BLDDIR/config/includes.chroot/etc/systemd/system/
 cp ../hooks/Global/* $WKDIR/$BLDDIR/config/hooks/normal/
 cp ../skel/global/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
-cp -r ../icons/* $WKDIR/$BLDDIR/config/includes.chroot/usr/share/icons/
-cp ../issue $WKDIR/$BLDDIR/config/includes.chroot/etc/
+cp ../splash.png /usr/share/live/build/bootloaders/
+cp ../splash.png /usr/share/live/build/bootloaders/extlinux/
+cp ../splash.png /usr/share/live/build/bootloaders/grub-legacy/
+cp ../splash.png /usr/share/live/build/bootloaders/grub-pc/
+cp ../splash.png /usr/share/live/build/bootloaders/isolinux/
+cp ../splash.png /usr/share/live/build/bootloaders/pxelinux/
+cp ../splash.png /usr/share/live/build/bootloaders/syslinux/
+cp ../splash.png /usr/share/live/build/bootloaders/syslinux_common/
 
 # Include edition files
 cp ../hooks/GNOME/* $WKDIR/$BLDDIR/config/hooks/normal/
 cp -r ../skel/gnome/.* $WKDIR/$BLDDIR/config/includes.chroot/etc/skel/
+cp -r ../themes/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
+cp -r ../icons/ $WKDIR/$BLDDIR/config/includes.chroot/usr/share/
 
 # Copy resolv.conf from host to chroot for online actions
 cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
@@ -75,10 +81,10 @@ cp -p /etc/resolv.conf $WKDIR/$BLDDIR/config/includes.chroot/etc/resolv.conf
 lb build
 
 # Disclaimer:
-# THIS SOFTWARE IS PROVIDED BY EZNIX “AS IS” AND ANY EXPRESS OR IMPLIED
+# THIS SOFTWARE IS PROVIDED BY THE AUTHORS “AS IS” AND ANY EXPRESS OR IMPLIED
 # WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 # MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
-# EVENT SHALL EZNIX BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EVENT SHALL THE AUTHORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
 # EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
 # PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
 # BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER

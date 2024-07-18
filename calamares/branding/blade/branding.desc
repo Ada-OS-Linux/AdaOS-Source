@@ -7,7 +7,7 @@ strings:
     shortProductName:    Ada
     version:             12
     shortVersion:        12
-    versionedName:       Ada OS (Internal)
+    versionedName:       Ada OS Polymar
     shortVersionedName:  Ada
     bootloaderEntryName: Ada OS
     productUrl:          https://www.bladeos.xyz/

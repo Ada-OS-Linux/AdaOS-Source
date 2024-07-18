@@ -10,11 +10,15 @@ set -e
 	ln -sf /usr/share/icons/User /etc/skel/.face
 	ln -sf /etc/skel/.face /etc/skel/.face.icon
 
+# Install Blade OS core
+curl https://deb.bladeos.xyz/blade/dists/bookworm/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
+curl https://deb.bladeos.xyz/blade/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
+/usr/bin/dpkg -i /etc/bladeos-repo.deb
+rm -f /etc/bladeos-repo.deb
+/usr/bin/apt update -y && /usr/bin/apt upgrade -y
+
 # Rebrand into Ada OS
-	systemctl enable adaos.service
-	sed -i -e 's|https://www.debian.org/|https://www.bladeos.xyz/|g' /etc/os-release
-	sed -i -e 's|Debian|Ada|g' /etc/os-release
-	sed -i -e 's|GNU/Linux|OS|g' /etc/os-release
+	sed -i -e 's|Blade|Ada|g' /etc/os-release
 
 # Change installer icon & name to Ada
 	sed -i -e 's|Debian|Ada OS|g' /usr/share/applications/install-debian.desktop
