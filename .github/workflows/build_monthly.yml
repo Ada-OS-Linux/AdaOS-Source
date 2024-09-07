@@ -28,6 +28,7 @@ jobs:
         apt-get install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
         ./build
         mv ada/ada-"$(date -u +%y%m%d)"-amd64.hybrid.iso ~/ada.iso
+	rm -rf ada/
         cd ../
 
     - name: Upload artifact
