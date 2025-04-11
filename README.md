@@ -8,6 +8,8 @@ Download the latest build here: https://github.com/Ada-OS-Linux/AdaOS-Source/act
 
 And/or: https://mega.nz/folder/3LBEGCRC#BuPC90U9fhtFyD547aXcXg
 
+Source Code Repository: https://source.adaoslinux.xyz/
+
 ---
 
 Install Dependencies 
