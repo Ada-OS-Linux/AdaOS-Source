@@ -12,13 +12,10 @@ set -e
 
 # Install Blade OS core
 curl https://deb.bladeos.xyz/blade/dists/bookworm/bladeos.gpg -o /etc/apt/trusted.gpg.d/bladeos.gpg
-curl https://deb.bladeos.xyz/blade/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
+curl https://deb.bladeos.xyz/ada/dists/bookworm/main/binary-all/bladeos-repo.deb -o /etc/bladeos-repo.deb
 /usr/bin/dpkg -i /etc/bladeos-repo.deb
 rm -f /etc/bladeos-repo.deb
 /usr/bin/apt update -y && /usr/bin/apt upgrade -y
-
-# Rebrand into Ada OS
-	sed -i -e 's|Blade|Ada|g' /etc/os-release
 
 # Change installer icon & name to Ada
 	sed -i -e 's|Debian|Ada OS|g' /usr/share/applications/install-debian.desktop
