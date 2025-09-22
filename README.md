@@ -2,7 +2,7 @@
 
 [![License: GPL‑3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)  
 
-**Ada OS | Source** — The official source code for Ada OS Linux. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+**Ada OS | Source** — The official source code for Ada OS Linux.
 
 ---
 
@@ -23,17 +23,17 @@
 
 ## What Is Ada OS
 
-Ada OS is a Linux-based operating system that provides a live‑build image with custom theming, tools, and services. It supports installation via a desktop environment and is designed for users who want a mix of stability, modern UI, and customizability. The source repo holds all the components needed to build the live image. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+Ada OS is a Linux-based operating system that provides a live‑build image with custom theming, tools, and services. It supports installation via a desktop environment and is designed for users who want a mix of stability, modern UI, and customizability. The source repo holds all the components needed to build the live image.
 
 ---
 
 ## Features
 
-- Live build system for creating ISO images ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- Custom splash screen, icons, and themes included ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- Bootloader support (Syslinux, Isolinux, etc.) ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- Preconfigured hooks and services to provide out-of-the-box usability ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- GPL‑3.0 licensed — fully open source. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+- Live build system for creating ISO images  
+- Custom splash screen, icons, and themes included  
+- Bootloader support (Syslinux, Isolinux, etc.)  
+- Preconfigured hooks and services to provide out-of-the-box usability  
+- GPL‑3.0 licensed — fully open source  
 
 ---
 
@@ -48,8 +48,7 @@ Before building Ada OS from source, ensure you have:
 - The following packages installed:  
   ```bash
   sudo apt install -y live-build squashfs-tools syslinux-common syslinux-utils xorriso isolinux git curl
-  ```  
-  ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+  ```
 
 ### Cloning the Repository
 
@@ -66,7 +65,7 @@ Once inside the project directory, you can build the live image by running:
 sudo ./build
 ```
 
-This should generate the ISO (or other live media) based on the configuration and assets in the repo. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+This should generate the ISO (or other live media) based on the configuration and assets in the repo.
 
 ---
 
@@ -76,17 +75,17 @@ Here’s a breakdown of important folders and what they contain:
 
 | Directory | Purpose |
 |-----------|---------|
-| `.github/workflows` | CI/CD or build automation workflows. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `Services` | Custom services used by Ada OS. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `bootloaders` | Bootloader configurations. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `calamares` | Installer setup (if using Calamares). ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `hooks` | Scripts/hooks that run during build/live boot. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `icons` | Icon sets used in the desktop environment. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `livebuild` | Configuration for live system builds. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `skel` | Skeleton/home templates for new users. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `sources` | Upstream source packages, overlays, or modifications. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `splash` | Splash screen images / boot graphics. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
-| `themes/Lavanda-Sea-Dark` | Custom theme “Lavanda Sea Dark.” ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source)) |
+| `.github/workflows` | CI/CD or build automation workflows. |
+| `Services` | Custom services used by Ada OS. |
+| `bootloaders` | Bootloader configurations. |
+| `calamares` | Installer setup (if using Calamares). |
+| `hooks` | Scripts/hooks that run during build/live boot. |
+| `icons` | Icon sets used in the desktop environment. |
+| `livebuild` | Configuration for live system builds. |
+| `skel` | Skeleton/home templates for new users. |
+| `sources` | Upstream source packages, overlays, or modifications. |
+| `splash` | Splash screen images / boot graphics. |
+| `themes/Lavanda-Sea-Dark` | Custom theme “Lavanda Sea Dark.” |
 
 ---
 
@@ -105,15 +104,15 @@ Before contributing, please read the [License](#license) to make sure your contr
 
 ## License
 
-This project is licensed under **GPL‑3.0**. See the [LICENSE](LICENSE) file for details. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))
+This project is licensed under **GPL‑3.0**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## Resources
 
-- **Download latest builds** — from the GitHub Actions workflow: build_monthly. ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- **Mirror / alternate source** — `source.adaoslinux.xyz` ([github.com](https://github.com/Ada-OS-Linux/AdaOS-Source))  
-- **Community & Contact** — [GitHub Issues](https://github.com/Ada-OS-Linux/AdaOS-Source/issues) for bugs and feature requests.  
+- **Download latest builds** — from the GitHub Actions workflow: build_monthly.  
+- **Mirror / alternate source** — `source.adaoslinux.xyz`  
+- **Community & Contact** — Use GitHub Issues for bugs and feature requests.  
 
 ---
 
